@@ -5,22 +5,52 @@
 /**
  * General DOM ready handler applied to all pages in base template.
  */
-$(document).ready(function() {
+(function($) {
+    // page must be loaded and ready before onWindowLoad fires
 
-    var client = Mozilla.Client;
-    var utils = Mozilla.Utils;
+    // as of jQuery 3.0, ready may not always fire before loaded,
+    // so we're making sure both have completed prior to attaching
+    // our 'loaded' class to the <html> element.
 
-    utils.initDownloadLinks();
-    utils.initMobileDownloadLinks();
-    utils.initLangSwitcher();
+    // https://github.com/jquery/jquery/issues/3194#issuecomment-228556922
+    var loaded = false;
+    var ready = false;
 
-    /* Bug 1264843: In partner distribution of desktop Firefox, switch the
-       downloads to corresponding partner build of Firefox for Android. */
-    if (client.isFirefoxDesktop) {
-        client.getFirefoxDetails(utils.maybeSwitchToDistDownloadLinks);
+    function onWindowLoad() {
+        $('html').addClass('loaded');
     }
 
-    $(window).on('load', function () {
-        $('html').addClass('loaded');
+    $(function() {
+        var client = Mozilla.Client;
+        var utils = Mozilla.Utils;
+
+        utils.initDownloadLinks();
+        utils.initMobileDownloadLinks();
+        utils.initLangSwitcher();
+
+        /* Bug 1264843: In partner distribution of desktop Firefox, switch the
+        downloads to corresponding partner build of Firefox for Android. */
+        if (client.isFirefoxDesktop) {
+            client.getFirefoxDetails(utils.maybeSwitchToDistDownloadLinks);
+        }
+
+        // if window.load happened already, fire onWindowLoad
+        if (loaded) {
+            onWindowLoad();
+        }
+
+        // note that document.ready happened to inform window.load
+        ready = true;
     });
-});
+
+    $(window).on('load', function () {
+        // if document.ready happened already, fire onWindowLoad
+        if (ready) {
+            onWindowLoad();
+        }
+
+        // note that window.load happened in case document.ready hasn't
+        // finished yet
+        loaded = true;
+    });
+})(window.jQuery);

@@ -154,17 +154,27 @@
   <![endif]-->
 
     {% block site_js %}
-      {% javascript 'common' %}
+      <!--[if !lte IE 8]><!-->
+        {% javascript 'common' %}
+      <!--<![endif]-->
+
+      <!--[if lte IE 8]>
+        {% javascript 'common-ie8' %}
+      <![endif]-->
     {% endblock %}
 
     {# Bug 1279291 #}
+    <!--[if !lte IE 8]><!-->
     {% block stub_attribution %}
       {% if settings.STUB_ATTRIBUTION_RATE %}
         {% javascript 'stub-attribution' %}
       {% endif %}
     {% endblock %}
+    <!--<![endif]-->
 
-    {% block js %}{% endblock %}
+    <!--[if !lte IE 8]><!-->
+      {% block js %}{% endblock %}
+    <!--<![endif]-->
 
     {# Bug 1381776 #}
     {% block update_notification %}

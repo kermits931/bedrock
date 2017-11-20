@@ -1071,7 +1071,7 @@ PIPELINE_JS = {
     # bundle should offset the extra weight.
     'common': {
         'source_filenames': (
-            'js/libs/jquery-1.11.3.min.js',
+            'js/libs/jquery-3.2.1.min.js',
             'js/libs/spin.min.js',  # used by js/newsletter/form.js
             'js/base/mozilla-utils.js',
             'js/newsletter/form.js',
@@ -1087,6 +1087,14 @@ PIPELINE_JS = {
             'js/base/search-params.js',
         ),
         'output_filename': 'js/common-bundle.js',
+    },
+    'common-ie8': {
+        'source_filenames': (
+            'js/libs/jquery-1.11.3.min.js',
+            'js/ie8/mozilla-utils.js',
+            'js/ie8/base-page-init-ie8.js',
+        ),
+        'output_filename': 'js/common-ie8-bundle.js',
     },
     'contact-spaces': {
         'source_filenames': (
