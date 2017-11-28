@@ -135,6 +135,11 @@ body {
     border: none;
     position: relative;
     width: 318px;
+    &.treatment {
+        // ensures the iframe + skip button is never smaller
+        // than the text on the left hand side
+        min-height: 220px;
+    }
 }
 
 #fxa-iframe-config {

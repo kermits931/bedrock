@@ -1277,6 +1277,8 @@ PIPELINE_JS = {
     },
     'firefox_firstrun_quantum': {
         'source_filenames': (
+            'js/base/mozilla-traffic-cop.js',
+            'js/firefox/firstrun/experiment-firstrun-email-first.js',
             'js/base/uitour-lib.js',
             'js/base/mozilla-fxa-iframe.js',
             'js/firefox/firstrun/firstrun_quantum.js',
