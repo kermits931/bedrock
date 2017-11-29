@@ -1277,13 +1277,18 @@ PIPELINE_JS = {
     },
     'firefox_firstrun_quantum': {
         'source_filenames': (
-            'js/base/mozilla-traffic-cop.js',
-            'js/firefox/firstrun/experiment-firstrun-email-first.js',
             'js/base/uitour-lib.js',
             'js/base/mozilla-fxa-iframe.js',
             'js/firefox/firstrun/firstrun_quantum.js',
         ),
         'output_filename': 'js/firefox_firstrun_quantum-bundle.js',
+    },
+    'experiment_firstrun_email_first': {
+        'source_filenames': (
+            'js/base/mozilla-traffic-cop.js',
+            'js/firefox/firstrun/experiment-firstrun-email-first.js',
+        ),
+        'output_filename': 'js/firefox_firstrun_quantum-email_first_experiment-bundle.js',
     },
     'firefox_firstrun_cliqz_funnelcake': {
         'source_filenames': (
