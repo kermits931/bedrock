@@ -135,9 +135,11 @@ body {
     border: none;
     position: relative;
     width: 318px;
+
+    // Bug 1405822: Ensures the iframe + skip button
+    // is never smaller than the text on the left hand side.
+    min-height: 321px;
     &.treatment {
-        // Bug 1405822: Ensures the email-first iframe + skip button
-        // is never smaller than the text on the left hand side.
         min-height: 220px;
     }
 }
