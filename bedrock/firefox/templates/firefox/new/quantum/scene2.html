@@ -60,5 +60,8 @@
   {% if switch('tracking-pixel') %}
     {% javascript 'firefox_new_pixel' %}
   {% endif %}
+  {% if LANG == 'en-US' and switch('netneutrality-12-2017') %}
+    {% javascript 'fxnew-netneutrality-12-2017' %}
+  {% endif %}
   {% javascript 'firefox_new_scene2' %}
 {% endblock %}

@@ -129,7 +129,22 @@ $submit-button-color: #fef45f;
             @include clearfix;
         }
     }
+
+    &.promo-net-neutrality {
+        background: #000;
+
+        h1 {
+            font-weight: bold;
+        }
+
+        .button {
+            background: $color-brand-neonblue;
+            border: 0;
+            color: #000;
+        }
+    }
 }
+
 
 #fundraiser-recurring label:first-child {
     margin-right: 20px;

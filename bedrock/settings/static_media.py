@@ -683,6 +683,7 @@ PIPELINE_CSS = {
             'css/newsletter/moznewsletter-subscribe.less',
             'css/mozorg/home/home-quantum.scss',
             'css/mozorg/home/fundraiser2017.scss',
+            'css/mozorg/home/netneutrality-12-2017.scss',
         ),
         'output_filename': 'css/home_quantum-bundle.css',
     },
@@ -1491,6 +1492,18 @@ PIPELINE_JS = {
             'js/mozorg/home/fundraiser-eoy2017.js',
         ),
         'output_filename': 'js/home-fundraiser-eoy2017-bundle.js',
+    },
+    'home-netneutrality-12-2017': {
+        'source_filenames': (
+            'js/mozorg/home/netneutrality-12-2017.js',
+        ),
+        'output_filename': 'js/home-netneutrality-12-2017-bundle.js',
+    },
+    'fxnew-netneutrality-12-2017': {
+        'source_filenames': (
+            'js/firefox/new/netneutrality-12-2017.js',
+        ),
+        'output_filename': 'js/fxnew-netneutrality-12-2017-bundle.js',
     },
     'history-slides': {
         'source_filenames': (
